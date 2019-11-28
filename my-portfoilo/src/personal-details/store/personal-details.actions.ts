@@ -1,6 +1,5 @@
 
 import { Action } from '@ngrx/store';
-import { PersonalDetailsState } from './personal-details.reducers';
 import { PersonalDeatiles } from 'src/models/personal-details.model';
 
 export const  LOAD_PERSONAL_DETAILS = 'LOAD_PERSONAL_DETAILS';
@@ -18,6 +17,6 @@ export class LoadPersonalDetailsSuccess implements Action{
     }
 }
 export class LoadPersonalDetailsFail implements Action{
-    readonly type = LOAD_PERSONAL_DETAILS;
+    readonly type = Load_Personal_Details_Fail;
 }
-export type All = LoadPersonalDetails | LoadPersonalDetailsSuccess;
+export type All = LoadPersonalDetails | LoadPersonalDetailsSuccess|LoadPersonalDetailsFail;

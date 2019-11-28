@@ -1,20 +1,33 @@
 import { PersonalDeatiles } from "src/models/personal-details.model";
-import { Action } from "rxjs/internal/scheduler/Action";
-import {  LOAD_PERSONAL_DETAILS, LOAD_PERSONAL_DETAILS_SUCCESS, All } from "./personal-details.actions";
-import { ActionsSubject } from "@ngrx/store";
 
+import {  LOAD_PERSONAL_DETAILS, LOAD_PERSONAL_DETAILS_SUCCESS, All, Load_Personal_Details_Fail } from "./personal-details.actions";
 
-export class PersonalDetailsState {
+import { ApplicationStateModel } from "src/models/application-state.model";
+import { cloneDeep } from 'lodash';
+
+export class PersonalDetailsState extends ApplicationStateModel<PersonalDetailsState> {
     details: PersonalDeatiles;
 }
 
-const initialState: PersonalDetailsState = new PersonalDetailsState();
+const initialState: PersonalDetailsState = new PersonalDetailsState({});
 
 export function personalDetailsReducer(state: PersonalDetailsState = initialState, action: All): PersonalDetailsState {
     switch (action.type) {
-
+        case LOAD_PERSONAL_DETAILS:
+            debugger;
+            return new PersonalDetailsState({...state,details:undefined});
         case LOAD_PERSONAL_DETAILS_SUCCESS:
-            return state = { details: action.payload };
+            debugger;
+            return state = {details : action.payload};
+            
+            
+        case Load_Personal_Details_Fail:
+            {
+                debugger;
+                console.log('Fail to load');
+                return undefined;
+
+            }
 
     }
 }

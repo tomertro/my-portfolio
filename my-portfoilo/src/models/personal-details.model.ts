@@ -1,5 +1,6 @@
 export interface PersonalDeatiles{
     Name:string;
-    Title:string 
+    Title:string;
+    Image:string, 
 
 }

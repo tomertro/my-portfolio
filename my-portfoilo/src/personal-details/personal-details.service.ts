@@ -1,7 +1,11 @@
 import { PersonalDeatiles } from 'src/models/personal-details.model';
 import { Injectable } from '@angular/core';
-import { ApplicationService } from 'src/application-service';
-import { Observable, of, from } from 'rxjs';
+import { ApplicationService } from 'src/app/application-service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+
+
 // The @Injectable() decorator marks it as a service that can be injected, 
 //but Angular can't actually inject it anywhere until you configure an Angular dependency 
 //injector with a provider of that service
@@ -11,11 +15,12 @@ import { Observable, of, from } from 'rxjs';
   providedIn: 'root',
 })
 export class PersonalDetailsService {
-  constructor(private appService:ApplicationService) { }
+  constructor(private appService:ApplicationService,private http: HttpClient) { }
 
-  getPersonalDetails():Observable<PersonalDeatiles>{
-       const result =  this.appService.readFile('PersonalDetails.json') ;
-       return from(result);
+  getPersonalDetails(): Observable<PersonalDeatiles>{
+
+    const result = this.http.get<PersonalDeatiles>(`assets/PersonalDetails.json`);
+    return result;
        
   }
 
