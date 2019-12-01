@@ -5,21 +5,23 @@ import {  LOAD_PERSONAL_DETAILS, LOAD_PERSONAL_DETAILS_SUCCESS, All, Load_Person
 import { ApplicationStateModel } from "src/models/application-state.model";
 import { cloneDeep } from 'lodash';
 
-export class PersonalDetailsState extends ApplicationStateModel<PersonalDetailsState> {
+export class PersonalDetailsState  {
     details: PersonalDeatiles;
 }
 
-const initialState: PersonalDetailsState = new PersonalDetailsState({});
-
+//const initialState: PersonalDetailsState = {details: {Name:'',Title:'',Image:''}};
+const initialState: PersonalDetailsState = new PersonalDetailsState();
 export function personalDetailsReducer(state: PersonalDetailsState = initialState, action: All): PersonalDetailsState {
     switch (action.type) {
         case LOAD_PERSONAL_DETAILS:
             debugger;
-            return new PersonalDetailsState({...state,details:undefined});
+            return state;
         case LOAD_PERSONAL_DETAILS_SUCCESS:
+            {
             debugger;
-            return state = {details : action.payload};
-            
+            return  {...state,details:action.payload}
+        };
+           // return new PersonalDetailsState({...state,details:cloneDeep(action.payload)});
             
         case Load_Personal_Details_Fail:
             {

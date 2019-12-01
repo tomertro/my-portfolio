@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { personalDetailsReducer } from 'src/personal-details/store/personal-details.reducers';
 import { EffectsModule } from '@ngrx/effects';
@@ -18,12 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     PersonalDetailsComponent
   ],
   imports: [
-    //StoreModule.forRoot({personalDetailsReducer}),   
-    StoreModule.forRoot({store:personalDetailsReducer}),
+    StoreModule.forRoot({personalDetailsReducer}),  
+    StoreModule.forFeature('personalDetails', personalDetailsReducer),
     EffectsModule.forRoot([PersonalDetailsEffects]),
+    //EffectsModule.forFeature([PersonalDetailsEffects]), 
+    /* StoreModule.forRoot({store:personalDetailsReducer}),
+    EffectsModule.forRoot([PersonalDetailsEffects]), */
     HttpClientModule,
     BrowserModule,
-    //StoreDevtoolsModule.instrument({maxAge: 25})
+    StoreDevtoolsModule.instrument({maxAge: 25})
   
     // StoreModule.forFeature('personalDetails', personalDetailsReducer),    
     // EffectsModule.forFeature([PersonalDetailsEffects])

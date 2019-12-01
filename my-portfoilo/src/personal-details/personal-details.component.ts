@@ -1,4 +1,4 @@
-import { LoadPersonalDetails } from './store/personal-details.actions';
+import { LoadPersonalDetails, LoadPersonalDetailsSuccess } from './store/personal-details.actions';
 import { PersonalDetailsState } from './store/personal-details.reducers';
 import { Component, OnInit } from '@angular/core';
 import { personalDetailsSelector } from './store/personal-details.selectors';
@@ -15,16 +15,21 @@ export class PersonalDetailsComponent implements OnInit {
   subscribers: Array<Subscription> = [];
   personalDetails$:Observable<PersonalDeatiles>;
   personalDetails: PersonalDeatiles;
-  constructor(private store:Store<PersonalDetailsState>) { }
-
-  ngOnInit() {
+  constructor(private store:Store<PersonalDetailsState>) { 
     this.loadPersonalDetails();
-    this.personalDetails$ = this.store.select(state=>state.details);
+    this.personalDetails$ = this.store.select(personalDetailsSelector);
     this.personalDetails$.subscribe(result =>{
       debugger;
             this.personalDetails = result;
-            console.log('personalDetails:'+this.personalDetails)
+            console.log('personalDetails: ' + JSON.stringify(this.personalDetails));
+          },error=>{
+            debugger;
+            console.log('error on subscribing.'+error)
           });
+  }
+
+  ngOnInit() {
+  
     /* this.subscribers.push(
     this.store.select(state=>state.details).subscribe(result =>{
 debugger;
@@ -35,6 +40,7 @@ debugger;
 
   loadPersonalDetails(){
     this.store.dispatch(new LoadPersonalDetails());
+    
   }
   ngOnDestroy(): void {
     this.subscribers.forEach(s => s.unsubscribe());

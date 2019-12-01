@@ -1,7 +1,7 @@
 export class ApplicationStateModel<T> {
 
     constructor(obj: Partial<T>) {
-        Object.assign(this, obj);
+        Object.assign({},this, obj);
 
     }
 }

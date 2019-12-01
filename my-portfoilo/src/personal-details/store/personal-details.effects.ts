@@ -10,7 +10,7 @@ import { of, Observable } from 'rxjs';
 @Injectable()
 export class PersonalDetailsEffects{
 
-  loadMovies$ = createEffect(() => this.actions$.pipe(
+  loadPersonalDeatile$ = createEffect(() => this.actions$.pipe(
     ofType(LOAD_PERSONAL_DETAILS),
     mergeMap(() => this.service.getPersonalDetails()
       .pipe(
