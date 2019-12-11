@@ -1,0 +1,57 @@
+<header id="main-header">
+<div class="row no-gutters">
+  <div class="col-lg-2 col-md-5 col-sm-4">
+      <img src={{personalDetails.Image}}  alt="">      
+  </div>
+  <div class="col-lg-8 col-md-7">
+    <div class="d-flex flex-column">
+      <!--row name-->
+      <div class="p-5 bg-dark text-white">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+              <h1 class="display-4">{{personalDetails.Name}}</h1> 
+              <div class="d-flex justify-content-start row-hl">  
+              <div class="p-3 item-hl">
+                <a href="http://stackoverflow.com" class="text-white">
+                  <i class="fab fa-stack-overflow"></i>
+                </a>
+              </div>   
+              <div class="p-3 item-hl" >
+                  <a href="http://linkedin.com" class="text-white">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </div>  
+                </div>                          
+          </div>
+
+        </div> 
+        <!--row Title-->
+        <div class="p-3 bg-secondary text-white">
+          <span>{{personalDetails.Title}}</span>
+        </div>  
+        <!--row menu--> 
+        <div class="row no-gutters">
+            <div class="col bg-primary text-white p-4 text-center">
+                <i class="fas fa-home fa-2x d-block"></i>
+                <span class="d-none d-sm-block">Home</span>
+            </div>
+            <div class="col bg-success text-white p-4 text-center">
+                <i class="fas fa-graduation-cap fa-2x d-block"></i>
+                <span class="d-none d-sm-block">Resume</span>
+            </div>
+            <div class="col bg-warning text-white p-4 text-center">
+                <i class="fas fa-folder-open fa-2x d-block"></i>
+                <span class="d-none d-sm-block">About This Site</span>
+            </div>
+            <div class="col bg-danger text-white p-4 text-center">
+                <i class="fas fa-envelope fa-2x d-block"></i>
+                <span class="d-none d-sm-block">Contact</span>
+            </div>            
+        </div>    
+    </div> <!--d-flex flex-column-->
+
+  </div>
+</div><!--row no-gutters-->
+
+
+
+</header>

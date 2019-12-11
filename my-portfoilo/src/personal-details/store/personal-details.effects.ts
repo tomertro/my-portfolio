@@ -14,19 +14,21 @@ export class PersonalDetailsEffects{
     ofType(LOAD_PERSONAL_DETAILS),
     mergeMap(() => this.service.getPersonalDetails()
       .pipe(
-        map((pd:PersonalDeatiles) =>
-         (         
-          new LoadPersonalDetailsSuccess(pd )
-          ),
+        map((pd:PersonalDeatiles) => {  
+          console.log('loadPersonalDeatile effect')       
+          return new LoadPersonalDetailsSuccess(pd );
+        }
+        ,
         catchError(error => {
           return of(new LoadPersonalDetailsFail());
         })
       ))
     )
   ));
-
   
-/*@Effect() 
+  //https://medium.com/@vdsabev/the-simple-difference-between-rxjs-switchmap-and-mergemap-397c311552a5
+  
+/* @Effect() 
  loadPersonalDetils$ : Observable<any> = this.actions$.pipe(ofType(LOAD_PERSONAL_DETAILS),
 switchMap(()=> this.service.getPersonalDetails().pipe(
   map((pd:PersonalDeatiles)=> {      
@@ -36,8 +38,8 @@ catchError(error => {
     return of(new LoadPersonalDetailsFail());
   })
 )
-)); */
-
+)); 
+ */
 /* loadHostedAppslist$: Observable<any> = this.actions$.pipe(
   ofType(HostedAppsActions.LOAD_HOSTED_APPLICATIONS),
   switchMap(() =>

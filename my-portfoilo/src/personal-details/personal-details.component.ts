@@ -12,30 +12,25 @@ import { Subscription, Observable } from 'rxjs';
   styleUrls: ['./personal-details.component.css']
 })
 export class PersonalDetailsComponent implements OnInit {
-  subscribers: Array<Subscription> = [];
+ 
   personalDetails$:Observable<PersonalDeatiles>;
-  personalDetails: PersonalDeatiles;
+  personalDetails: PersonalDeatiles ;
+  private subscriptions: Array<Subscription> = [];
   constructor(private store:Store<PersonalDetailsState>) { 
-    this.loadPersonalDetails();
-    this.personalDetails$ = this.store.select(personalDetailsSelector);
-    this.personalDetails$.subscribe(result =>{
-      debugger;
-            this.personalDetails = result;
-            console.log('personalDetails: ' + JSON.stringify(this.personalDetails));
-          },error=>{
-            debugger;
-            console.log('error on subscribing.'+error)
-          });
+  
   }
 
   ngOnInit() {
   
-    /* this.subscribers.push(
-    this.store.select(state=>state.details).subscribe(result =>{
-debugger;
-      this.personalDetails = result;
-      console.log('personalDetails:'+this.personalDetails)
-    } )); */
+    this.loadPersonalDetails();
+    this.personalDetails$ = this.store.select(personalDetailsSelector);
+    
+    this.subscriptions.push(this.personalDetails$.subscribe(result =>{      
+            this.personalDetails = result;
+            console.log('personalDetails: ' + JSON.stringify(this.personalDetails));
+          },error=>{           
+            console.log('error on subscribing.'+error)
+          }));  
   }
 
   loadPersonalDetails(){
@@ -43,8 +38,9 @@ debugger;
     
   }
   ngOnDestroy(): void {
-    this.subscribers.forEach(s => s.unsubscribe());
-    this.subscribers = [];
-    // this.patientConfidentialityRestrictionService.isAllReqSuccess.emit(false);
+    //https://medium.com/angular-in-depth/the-best-way-to-unsubscribe-rxjs-observable-in-the-angular-applications-d8f9aa42f6a0
+    this.subscriptions.forEach(s => s.unsubscribe());
+    this.subscriptions = [];
+    
   }
 }

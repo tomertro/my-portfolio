@@ -9,16 +9,14 @@ export class PersonalDetailsState  {
     details: PersonalDeatiles;
 }
 
-//const initialState: PersonalDetailsState = {details: {Name:'',Title:'',Image:''}};
-const initialState: PersonalDetailsState = new PersonalDetailsState();
+const initialState: PersonalDetailsState = {details: {Name:'',Title:'',Image:''}};
+//const initialState: PersonalDetailsState = new PersonalDetailsState();
 export function personalDetailsReducer(state: PersonalDetailsState = initialState, action: All): PersonalDetailsState {
     switch (action.type) {
-        case LOAD_PERSONAL_DETAILS:
-            debugger;
-            return state;
+        case LOAD_PERSONAL_DETAILS:            
+            return state ;
         case LOAD_PERSONAL_DETAILS_SUCCESS:
-            {
-            debugger;
+            {           
             return  {...state,details:action.payload}
         };
            // return new PersonalDetailsState({...state,details:cloneDeep(action.payload)});
@@ -30,6 +28,8 @@ export function personalDetailsReducer(state: PersonalDetailsState = initialStat
                 return undefined;
 
             }
+            default:
+                return state;
 
     }
 }
