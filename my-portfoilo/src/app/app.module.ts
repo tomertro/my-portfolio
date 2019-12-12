@@ -9,13 +9,16 @@ import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { PersonalDetailsComponent } from 'src/personal-details/personal-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactComponent } from 'src/contact/contact.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonalDetailsComponent
+    PersonalDetailsComponent,
+    ContactComponent
   ],
   imports: [
     StoreModule.forRoot({personalDetailsReducer}),  
@@ -26,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     EffectsModule.forRoot([PersonalDetailsEffects]), */
     HttpClientModule,
     BrowserModule,
-    StoreDevtoolsModule.instrument({maxAge: 25})
+    StoreDevtoolsModule.instrument({maxAge: 25}),
+    AppRoutingModule
   
     // StoreModule.forFeature('personalDetails', personalDetailsReducer),    
     // EffectsModule.forFeature([PersonalDetailsEffects])
