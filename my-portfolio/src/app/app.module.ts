@@ -11,6 +11,7 @@ import { PersonalDetailsComponent } from 'src/personal-details/personal-details.
 import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from 'src/contact/contact.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PortfolioHomeComponent } from '../portfolio-home/portfolio-home.component';
 
 
 
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     PersonalDetailsComponent,
-    ContactComponent
+    ContactComponent,
+    PortfolioHomeComponent
   ],
   imports: [
     StoreModule.forRoot({personalDetailsReducer}),  

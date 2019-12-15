@@ -1,3 +1,4 @@
+import { PortfolioHomeComponent } from 'src/portfolio-home/portfolio-home.component';
 import { ContactComponent } from './../contact/contact.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,8 +8,9 @@ import { PersonalDetailsComponent } from 'src/personal-details/personal-details.
 
 const routes:Routes = [
   //
-  { path: '', redirectTo: '/contact', pathMatch: 'full' },  
-  {path:'contact',component:ContactComponent}
+  { path: '', redirectTo: '/home', pathMatch: 'full' },  
+  {path:'contact',component:ContactComponent},
+  {path:'home',component:PortfolioHomeComponent}
   ]
   ;
 
