@@ -2,6 +2,7 @@
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+var os = require('os');
 
 
 var express = require('express');
@@ -27,13 +28,15 @@ const sendMail = (callback) => {
       console.log('testAccount' + account);
       console.log('Credentials obtained, sending message...');
       const transporter = nodemailer.createTransport({
+        name: os.hostname(),
+       // name:"",
         host: account.smtp.host,
         port: account.smtp.port,
         secure: account.smtp.secure,
-        
+        service: "gmail",
         auth: {
-          user: account.user,
-          pass: account.pass
+          user: "tomertrojman@gmail.com",
+          pass: "smith1977"
         },
         // sender address
         //from:`TomerTrojmanApp@nodemailer.com`,
@@ -43,8 +46,9 @@ const sendMail = (callback) => {
         logger: true,
         debug: false // include SMTP traffic in the logs
       });
-      const mailOptions = {     
-        from:"sender@ethereal.email",
+      const mailOptions = {  
+           
+        from:account.user,
         to: "tomert@hotmail.com",
         subject: "Contact Request",
         html: "<h1>And here is the place for HTML</h1>"
