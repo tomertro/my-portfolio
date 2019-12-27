@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 var os = require('os');
-
+var config = require( "../src/config" );
 
 var express = require('express');
 var router = express.Router();
@@ -14,60 +14,39 @@ var router = express.Router();
   
 
 const sendMail = (callback) => {
-  
-  console.log('send mail')
-  let testAccount ;
-   nodemailer.createTestAccount((err, account) => {
-    if (err) {
-        console.error('Failed to create a testing account');
-        console.error(err);
-        return process.exit(1);}
+  console.log('send mail');
+  console.log('send mail');
+  const transporter = nodemailer.createTransport({
+    name:'localhost',
+    host: "smtp.ethereal.email",
+    port:587,
+    secure:false,
+    service: "gmail",
+    auth: {
+      user:config.emailUser,
+      pass:config.emailPass,
     
-    else{
-     
-      console.log('testAccount' + account);
-      console.log('Credentials obtained, sending message...');
-      const transporter = nodemailer.createTransport({
-        name: os.hostname(),
-       // name:"",
-        host: account.smtp.host,
-        port: account.smtp.port,
-        secure: account.smtp.secure,
-        service: "gmail",
-        auth: {
-          user: "tomertrojman@gmail.com",
-          pass: "smith1977"
-        },
-        // sender address
-        //from:`TomerTrojmanApp@nodemailer.com`,
-        headers: {
-          'X-Laziness-level': 1000 // just an example header, no need to use this
-      },
-        logger: true,
-        debug: false // include SMTP traffic in the logs
-      });
-      const mailOptions = {  
-           
-        from:account.user,
-        to: "tomert@hotmail.com",
-        subject: "Contact Request",
-        html: "<h1>And here is the place for HTML</h1>"
-      };
-      
-      transporter.sendMail(mailOptions, callback); 
-    }
-    });
+    },
     
+    headers: {
+      'X-Laziness-level': 1000 // just an example header, no need to use this
+  },
+    logger: true,
+    debug: false // include SMTP traffic in the logs
+  });
+  const mailOptions = {    
+   from: '"tomertapps"tomertapps@gmail.com',
+    to: "tomert@hotmail.com",
+    subject: "Contact Request",
+    html: "<h1>And here is the place for HTML</h1>"
+  };
   
-  
-    
-   
-  }
+  transporter.sendMail(mailOptions, callback); 
+}
 
 router.post("/",(req,res)=>{
     console.log("request came");
-    //let user = req.body;
-    //console.log(user)
+    
     sendMail( (err, info)=>{
         if (err) {
             debugger;
