@@ -1,0 +1,18 @@
+<div class="modal" #myModal id="submitModal" [ngStyle]="{'display': isOpen ? 'block' : 'none'}">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{title}}</h5>
+        <button class="close" (click)="closeModel()">&times;</button>
+      </div>
+      <div class="modal-body">
+       {{content}}
+        <!-- Thank You for contacting. I will review the request, my resume will be sent if rellevant. -->
+      </div>      
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="closeModel()">Close</button>
+      </div>
+    </div><!--Content-->
+    
+  </div>
+</div>

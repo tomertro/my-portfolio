@@ -1,4 +1,5 @@
 
+
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
@@ -9,12 +10,8 @@ var express = require('express');
 var router = express.Router();
 
 // Generate SMTP service account from ethereal.email
- 
 
-  
-
-const sendMail = (callback) => {
-  console.log('send mail');
+const sendMail = (contact,callback) => {
   console.log('send mail');
   const transporter = nodemailer.createTransport({
     name:'localhost',
@@ -38,18 +35,21 @@ const sendMail = (callback) => {
    from: '"tomertapps"tomertapps@gmail.com',
     to: "tomert@hotmail.com",
     subject: "Contact Request",
-    html: "<h1>And here is the place for HTML</h1>"
+    html: `<h1>Contact Request from ${contact.firstName} ${contact.lastName}</h1>`
   };
   
   transporter.sendMail(mailOptions, callback); 
 }
 
+
+
 router.post("/",(req,res)=>{
+  debugger;
     console.log("request came");
-    
-    sendMail( (err, info)=>{
+    var contact = {firstName:req.body.firstName, lastName:req.body.lastName,};
+    sendMail( contact,(err, info)=>{
         if (err) {
-            debugger;
+           
             console.log(err);
             res.status(400);
             res.send({ error: "Failed to send email" });
@@ -61,4 +61,7 @@ router.post("/",(req,res)=>{
           }
     });
 });
+
+
+
 module.exports = router;

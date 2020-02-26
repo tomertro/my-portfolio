@@ -1,0 +1,9 @@
+input.ng-invalid.ng-touched{
+border: 2px solid crimson;
+}
+button:disabled{
+    cursor: default;
+}
+textarea {
+    resize: none;
+ }
