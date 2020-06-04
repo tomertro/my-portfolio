@@ -1,5 +1,20 @@
 {
     "Name":"Tomer Trojman",
     "Title":"Software Engineer",
-    "Image":"assets/Tomer Trojman.jpg"
+    "Image":"assets/Popai.jpg",
+    "About":"Hello I am Tomer Trojman.\n I am a an expert developer.\n Educated as software engineer in Sami Samoon college.\n I have been a software developer in industry since 2006, having vast experience of technologies, encounter challenges and experience wide range of software designs and patterns.",
+    "Skills":["Actively participate in scrum ceremonies - planning, estimation, demos, retrospectives.\n Collaborate with other team members and architects to ensure solutions are best practice.",
+    "Provides knowledge transfer to the teams memebers",
+    "Design and architects the solution.\n have the knowledge and capabilities to create user interface, and develop the services fetching the data.",
+    "Code quality – refactor code, design solution based on design patterns.\n pushing forward for simple code that will be coherent for the next developer that will maintain this code.",
+    "Participate in code reviews.",
+    "Consulting teammates with solutions and designs",
+    "A good team player.",
+    "Great experience in the analysis, design, development and support of large complex applications.",
+    "Responsible for choosing the third-party controls, leading research and POC proofed of concept.",
+    "Experience in abstraction, advanced techniques, best practices, and design patterns.",
+    "I up to date on latest trends and technologies, and suggest way to continuously improve"
+    ]
+
+    
 }

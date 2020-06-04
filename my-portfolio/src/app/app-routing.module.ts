@@ -1,3 +1,4 @@
+import { ResumeComponent } from './../resume/resume.component';
 import { PortfolioHomeComponent } from 'src/portfolio-home/portfolio-home.component';
 import { ContactComponent } from './../contact/contact.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,9 @@ const routes:Routes = [
   //
   { path: '', redirectTo: '/home', pathMatch: 'full' },  
   {path:'contact',component:ContactComponent},
-  {path:'home',component:PortfolioHomeComponent}
+  {path:'home',component:PortfolioHomeComponent},
+  {path:'resume',component:ResumeComponent},
+  
   ]
   ;
 

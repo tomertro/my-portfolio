@@ -5,14 +5,16 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 var os = require('os');
 var config = require( "../src/config" );
-
+const url = require('url');
 var express = require('express');
 var router = express.Router();
+var ContactModel = require('../model/contact.model');
 
 // Generate SMTP service account from ethereal.email
 
 const sendMail = (contact,callback) => {
-  console.log('send mail');
+  try {
+    console.log('send mail');
   const transporter = nodemailer.createTransport({
     name:'localhost',
     host: "smtp.ethereal.email",
@@ -39,6 +41,10 @@ const sendMail = (contact,callback) => {
   };
   
   transporter.sendMail(mailOptions, callback); 
+
+  } catch (error) {
+    throw new Error('Send Email Failure');
+  }
 }
 
 
@@ -46,20 +52,35 @@ const sendMail = (contact,callback) => {
 router.post("/",(req,res)=>{
   debugger;
     console.log("request came");
-    var contact = {firstName:req.body.firstName, lastName:req.body.lastName,};
-    sendMail( contact,(err, info)=>{
-        if (err) {
-           
-            console.log(err);
-            res.status(400);
-            res.send({ error: "Failed to send email" });
-          }
-          else{
-            console.log("Email has been sent");
-            console.log(nodemailer.getTestMessageUrl(info));
-            res.send(info);
-          }
+    const queryObject = url.parse(req.url,true).query;
+    var id = queryObject.ContactID;
+    try {
+      ContactModel.getContact(id).then((res1)=>{
+        const contact = res1;
+        if(contact === undefined){
+          throw new Error('contact not found');
+        }
+        sendMail( contact,(err ,info)=>{
+            if (err) {
+               
+                console.log(err);
+                res.status(400);
+                res.send({ error: "Failed to send email" });
+              }
+              else{
+                console.log("Email has been sent");
+                console.log(nodemailer.getTestMessageUrl(info));
+                res.status(200).send(info);
+               // res.send(info);
+              }
+        });
     });
+      
+    } catch (error) {
+      res.status(500).send(error);
+    }
+ 
+
 });
 
 

@@ -1,6 +1,6 @@
 import { LoadPersonalDetails, LoadPersonalDetailsSuccess } from './store/personal-details.actions';
 import { PersonalDetailsState } from './store/personal-details.reducers';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { personalDetailsSelector } from './store/personal-details.selectors';
 import { Store } from '@ngrx/store';
 import { PersonalDeatiles } from 'src/models/personal-details.model';
@@ -11,7 +11,7 @@ import { Subscription, Observable } from 'rxjs';
   templateUrl: './personal-details.component.html',
   styleUrls: ['./personal-details.component.css']
 })
-export class PersonalDetailsComponent implements OnInit {
+export class PersonalDetailsComponent implements OnInit,OnDestroy {
  
   personalDetails$:Observable<PersonalDeatiles>;
   personalDetails: PersonalDeatiles ;

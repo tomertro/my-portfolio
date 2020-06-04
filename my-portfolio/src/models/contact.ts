@@ -6,4 +6,5 @@ export class Contact{
     companyName :string
     jobTitle :string
     reqeustInfo:string
+    _id:string
 }

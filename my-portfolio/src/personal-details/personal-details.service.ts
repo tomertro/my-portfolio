@@ -18,7 +18,7 @@ export class PersonalDetailsService {
   constructor(private appService:ApplicationService,private http: HttpClient) { }
 
   getPersonalDetails(): Observable<PersonalDeatiles>{
-
+    debugger
     const result = this.http.get<PersonalDeatiles>(`assets/PersonalDetails.json`);
     return result;
        

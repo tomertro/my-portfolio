@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   serverUrl:'http://localhost:3000/',
-  isOffline: true,
+  isOffline: false,
 
 };
 

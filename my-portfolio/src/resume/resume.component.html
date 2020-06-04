@@ -1,0 +1,14 @@
+
+<div class="card card-body bg-success text-white py-1">
+  <h2>{{Title}}</h2>  
+</div>
+<div class="card mt-2" >    
+ 
+    <div class="card-header ">
+      My Experience
+    </div>
+   <div class="row ml-1">
+    <app-job-experience [jobExperience]='job' *ngFor="let job of resume|async" ></app-job-experience>
+   </div>
+ 
+</div>

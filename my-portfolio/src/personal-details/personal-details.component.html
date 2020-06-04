@@ -1,7 +1,7 @@
 <header id="main-header">
 <div class="row no-gutters">
   <div class="col-lg-4 col-md-5">
-      <img src={{personalDetails.Image}}  alt="">      
+      <img src={{personalDetails.Image}} style="width:10rem;" alt="">      
   </div>
   <div class="col-lg-8 col-md-7">
     <div class="d-flex flex-column">
@@ -10,13 +10,13 @@
         <div class="d-flex flex-row justify-content-between align-items-center">
               <h1 class="display-4">{{personalDetails.Name}}</h1> 
               <div class="d-flex justify-content-start row-hl">  
-              <div class="p-3 item-hl">
-                <a href="http://stackoverflow.com" class="text-white">
+              <div class="p-2 item-hl">
+                <a href="https://stackoverflow.com/users/3405987/tomer-trojman" class="text-white">
                   <i class="fab fa-stack-overflow"></i>
                 </a>
               </div>   
-              <div class="p-3 item-hl" >
-                  <a href="http://linkedin.com" class="text-white">
+              <div class="p-2 item-hl" >
+                  <a href="https://il.linkedin.com/in/tomer-trojman-a3b27a74" class="text-white">
                     <i class="fab fa-linkedin"></i>
                   </a>
                 </div>  
@@ -34,7 +34,7 @@
                 <i class="fas fa-home fa-2x d-block"></i>
                 <a class="d-none d-sm-block text-white" >Home</a>                
             </div>
-            <div class="col bg-success text-white p-4 text-center">
+            <div class="col bg-success text-white p-4 text-center" style="cursor:pointer;" routerLink="/resume" >
                 <i class="fas fa-graduation-cap fa-2x d-block"></i>
                 <span class="d-none d-sm-block">Resume</span>
             </div>

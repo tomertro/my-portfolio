@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mailsenderRouter = require('./routes/mailsender');
+var contactController =  require('./routes/contactController');
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/sendmail', mailsenderRouter);
-
+app.use('/contact',contactController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

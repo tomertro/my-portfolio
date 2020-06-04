@@ -1,9 +1,10 @@
+import { environment } from './../environments/environment';
 
 import { Contact } from './../models/contact';
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { ContactState } from './store/contact.reducers';
 import { Store } from '@ngrx/store';
-import { AddContact, AddContactSuccess, AddContactFailed, ADD_CONTACT_FAILED, ADD_CONTACT, ADD_CONTACT_SUCCESS } from './store/contact.actions';
+import { AddContact, AddContactSuccess, AddContactFailed, ADD_CONTACT_FAILED, ADD_CONTACT, ADD_CONTACT_SUCCESS, MAIL_SENT_FAILED } from './store/contact.actions';
 import { contactSelector } from './store/contact.selector';
 import { Subscription } from 'rxjs';
 import { Actions, ofType } from '@ngrx/effects';
@@ -34,7 +35,10 @@ export class ContactComponent implements OnInit {
     //const contact$ = this.contactStore.select(contactSelector);
     this.subscriptions.push(this.actions$.pipe(ofType(ADD_CONTACT_SUCCESS)).subscribe(
       ()=>{
-        this.openModal('Thank You for contacting. I will review the request, my resume will be sent if rellevant.');
+        if(environment.isOffline)
+          this.openModal('The site is in offline mode. Please conatcat me via email: tomert@hotmail.com');
+        else
+          this.openModal('Thank You for contacting. I will review the request, my resume will be sent if rellevant.');
       }
     ));
    
@@ -42,6 +46,11 @@ export class ContactComponent implements OnInit {
       ()=>{
         debugger;
         this.openModal('Sorry.System error occured.');
+      }
+    ));
+    this.subscriptions.push(this.actions$.pipe(ofType(MAIL_SENT_FAILED)).subscribe(
+      ()=>{        
+        this.openModal('Sorry.System error occured.Please conatcat me via email: tomert@hotmail.com');
       }
     ));
   }
