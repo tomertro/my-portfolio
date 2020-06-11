@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalComponent } from 'src/modal/modal.component';
 import { ResumeComponent } from '../resume/resume.component';
 import { JobExperienceComponent } from '../job-experience/job-experience.component';
+import { AboutSiteComponent } from '../about-site/about-site.component';
 
 
 
@@ -32,7 +33,8 @@ import { JobExperienceComponent } from '../job-experience/job-experience.compone
    ContactComponent,
    ModalComponent,
    ResumeComponent,
-   JobExperienceComponent
+   JobExperienceComponent,
+   AboutSiteComponent
   
   ],
   exports:[ModalComponent],

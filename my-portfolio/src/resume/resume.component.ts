@@ -16,7 +16,7 @@ export class ResumeComponent implements OnInit {
   constructor(private resumeService:ResumeService) { }
 
   ngOnInit() {
-    this.resume = this.resumeService.getResume();
+    this.resume = this.resumeService.resumeObeservable;
   }
 
 }
