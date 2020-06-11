@@ -1,0 +1,21 @@
+{
+    "Description": "This site is single page application construct using Angular framework and development platform. Version:8.0.3",
+    "Designs": [
+        {
+            "Image": "assets/json.png",
+            "Description": "The data is dynamic, stored in JSON files"
+        },
+        {
+            "Image": "assets/Ngrx.png",
+            "Description": "Reactive application using NgRx"
+        },
+        {
+            "Image": "assets/RxJS.jpg",
+            "Description": "Using RxJS - reactive extensions library for javascript"
+        },
+        {
+            "Image": "assets/Bootstarp4A.jpg",
+            "Description": "Responsive site using front end Bootstrap toolkit"
+        }
+    ]
+}
