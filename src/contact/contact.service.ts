@@ -17,7 +17,8 @@ export class ContactService {
      console.log('Save Contact:' + JSON.stringify(contact));
      const body = JSON.stringify(contact);
      const headers = {'Content-Type':'application/json','Access-Control-Allow-Origin': '*'};
-     const api = this._baseUrl + 'contact'
+     //const api = this._baseUrl + 'contact'
+     const api = "/contact";
      //const api =  '/sendmail'    
     return  this.http.put(api, body,  { headers })
    
@@ -31,8 +32,8 @@ export class ContactService {
     const options = contactId ?
    { params: new HttpParams().set('ContactID', contactId.trim()) } : {};
 
-      const api = this._baseUrl + 'sendmail'
-      //const api =  '/sendmail'    
+      //const api = this._baseUrl + 'sendmail'
+      const api =  '/sendmail'    
       return this.http.post(api, options)
     
      }

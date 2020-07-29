@@ -21,5 +21,5 @@ assert( PORT, "PORT configuration is required." );
 module.exports = {
    emailUser: EMAIL_USER,
    emailPass: EMAIL_PASS,
-   port : PORT
+   port : process.env.PORT || PORT
 };
