@@ -5,10 +5,8 @@
     "ng": "ng",
     "start": "node ./Server/bin/www",
     "dev": "ng serve --configuration=mock",
-    "build": "ng lint && ng build --prod --stats-json ",
-    "build-offline": "ng build --deleteOutputPath=true --configuration=offline",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "build": "ng lint && ng build --prod --stats-json ",    
+    "test": "jest",   
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "lint": "ng lint",
@@ -17,8 +15,7 @@
     "build-sourcemap": "ng build --prod --sourcemaps --output-hashing none",
     "stats-sourcemap": "source-map-explorer dist/main.bundle.js",
     "test-debug": "ng test --browsers Chrome_with_debugging",
-    "heroku-postbuild": "ng build --prod",
-    "doc": "./node_modules/.bin/compodoc -p src/tsconfig.doc.json --includes additional-documentation -a additional-documentation/images"
+    "heroku-postbuild": "ng build --prod"   
   },
   "private": true,
   "dependencies": {
