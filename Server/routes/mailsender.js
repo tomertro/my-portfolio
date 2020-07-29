@@ -14,7 +14,6 @@ var ContactModel = require('../model/contact.model');
 
 const sendMail = (contact,callback) => {
   try {
-    console.log('send mail');
   const transporter = nodemailer.createTransport({
     name:'localhost',
     host: "smtp.ethereal.email",

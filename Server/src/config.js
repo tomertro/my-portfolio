@@ -2,10 +2,11 @@
 
 const assert = require( "assert" );
 const dotenv = require( "dotenv" );
+const path = require('path')
 
 // read in the .env file
 dotenv.config();
-
+///{ path: path.resolve(process.cwd() +'/server/.env')  }
 // capture the environment variables the application needs
 const { EMAIL_USER,
     EMAIL_PASS,PORT
