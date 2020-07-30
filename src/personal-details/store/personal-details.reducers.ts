@@ -22,8 +22,7 @@ export function personalDetailsReducer(state: PersonalDetailsState = initialStat
            // return new PersonalDetailsState({...state,details:cloneDeep(action.payload)});
             
         case Load_Personal_Details_Fail:
-            {
-                debugger;
+            {                
                 console.log('Fail to load');
                 return undefined;
 

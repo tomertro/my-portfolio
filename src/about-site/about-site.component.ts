@@ -18,8 +18,7 @@ export class AboutSiteComponent implements OnInit {
 
   ngOnInit() {
     this.service.aboutSite.subscribe(
-      res=>{
-        debugger
+      res=>{        
         this.aboutSite = res
       }
       

@@ -17,7 +17,7 @@ const options = {
 };
 const connectWithRetry = () => {
     console.log('MongoDB connection with retry')
-    mongoose.connect("mongodb://localhost:27017/my-portflio", options).then(()=>{
+    mongoose.connect(process.env.MONGODB_URL, options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count);

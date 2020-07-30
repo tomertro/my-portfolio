@@ -10,8 +10,7 @@ const intinialState: ContactState = new ContactState();
 export function contactReducer (state:ContactState = intinialState ,action : ContactActions) : ContactState{
     switch(action.type){
         case ADD_CONTACT:{
-            console.log('contact reducer');
-            debugger;
+            console.log('contact reducer');           
             action.payload._id = undefined
             return  {...state,contact : action.payload}
         }

@@ -12,33 +12,35 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
   private readonly _baseUrl = environment.serverUrl;
-  
-   SaveContact(contact:Contact):Observable<any>{
-     console.log('Save Contact:' + JSON.stringify(contact));
-     const body = JSON.stringify(contact);
-     const headers = {'Content-Type':'application/json','Access-Control-Allow-Origin': '*'};
-     //const api = this._baseUrl + 'contact'
-     const api = "/contact";
-     //const api =  '/sendmail'    
-    return  this.http.put(api, body,  { headers })
-   
-    }
 
-    EmailContact(contactId:string):Observable<any>{     
+  SaveContact(contact: Contact): Observable<any> {
+    console.log('Save Contact:' + JSON.stringify(contact));
+    const body = JSON.stringify(contact);
+    const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
+    const api = this._baseUrl + 'contact'
+    //const api = "api/contact";
+    //const api =  '/sendmail'    
+    return this.http.put(api, body,{headers}) 
+
+  }
+
+  EmailContact(contactId: string): Observable<any> {
     //  const body = contactId;
-      const headers = {'Content-Type':'application/json'};
-     /*  const body = new HttpParams()
-    .set('ContactID', contactId); */
+    const headers = { 'Content-Type': 'application/json' };
+    /*  const body = new HttpParams()
+   .set('ContactID', contactId); */
     const options = contactId ?
-   { params: new HttpParams().set('ContactID', contactId.trim()) } : {};
+      {
+        params: new HttpParams().set('ContactID', contactId.trim())
+      } : {};
 
-      //const api = this._baseUrl + 'sendmail'
-      const api =  '/sendmail'    
-      return this.http.post(api, options)
-    
-     }
+    const api = this._baseUrl + 'sendmail'
+    //const api = 'api/sendmail'
+    return this.http.post(api, options)
 
-   // return this.http.post(this.serverUrl, auditEvent, { headers: { 'Content-Type': 'application/json' } });
+  }
+
+  // return this.http.post(this.serverUrl, auditEvent, { headers: { 'Content-Type': 'application/json' } });
   errorHandler(error) {
     console.error('CUSTOM ERROR');
     return Observable.throw(error);

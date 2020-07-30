@@ -43,8 +43,7 @@ export class ContactComponent implements OnInit {
     ));
    
     this.subscriptions.push(this.actions$.pipe(ofType(ADD_CONTACT_FAILED)).subscribe(
-      ()=>{
-        debugger;
+      ()=>{       
         this.openModal('Sorry.System error occured.');
       }
     ));
