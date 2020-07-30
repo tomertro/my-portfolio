@@ -1,0 +1,41 @@
+[{
+    "CompanyName":"Allscripts",
+    "Dates":"2014-Present",
+    "JobTitle":"Expert Software Engineer",
+    "JobDescription":"Recently working on Angular applications and WPF application integrated windows with chromium control.\nWPF/C# developer in patient centric group products.Develop WPF applications using Microsoft Prism Library.Beckend developer WCF/WEB API.",
+    "Image":"assets/Allscripts.jpg",
+    "CompanyLink":"https://www.allscripts.com/"
+},
+{
+    "CompanyName":"Malam",
+    "Dates":"2010-2014",
+    "JobTitle":"Senior Software Engineer",
+    "JobDescription":"Application developer client,server on .net C# .Client -WPF,Server- write sql SP, WCF services.develop word documents data binding by Open XML.",
+    "Image":"assets/MalamTeam.png",
+    "CompanyLink":"https://www.malamteam.com/"
+},
+{
+    "CompanyName":"One1",
+    "Dates":"2009-2010",
+    "JobTitle":"Software Application Engineer",
+    "JobDescription":"Net client server programmer. Win Form Application based on PostGreSQL DB. Working with third part Infragistics Windows Form.",
+    "Image":"assets/one.jpg",
+    "CompanyLink":"https://www.one1.co.il/"
+},
+{
+    "CompanyName":"Clockwork Solutions",
+    "Dates":"2007-2009",
+    "JobTitle":"Software Application Engineer",
+    "JobDescription":".net programmer C# Win Form application",
+    "Image":"assets/Clockwork Solutions.png",
+    "CompanyLink":"https://www.lmi.org/press-release/lmi-acquires-clockwork-solutions"
+},
+{
+    "CompanyName":"Intel",
+    "Dates":"2006-2007",
+    "JobTitle":"Software Application Engineer",
+    "JobDescription":"Develop  ASP,ASP.NET and Win Forms applications.",
+    "Image":"assets/Intel.png",
+    "CompanyLink":"https://www.intel.co.il/content/www/il/he/homepage.html"
+}
+]
