@@ -14,8 +14,8 @@ const nodemailer = require("nodemailer");
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'jade');
 //configure the Express middleware to accept CORS requests and parse request body into JSON
 //app.use(ra origin: "*" }));
 app.use(cors())
