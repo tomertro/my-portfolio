@@ -14,8 +14,8 @@ const nodemailer = require("nodemailer");
 var app = express();
 
 // view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
+app.set('views', path.join(__dirname,'../src/index.html'));
+app.set('view engine', 'jade');
 //configure the Express middleware to accept CORS requests and parse request body into JSON
 //app.use(ra origin: "*" }));
 app.use(cors())
@@ -33,8 +33,8 @@ app.use('/users', usersRouter);
 app.use('/sendmail', mailsenderRouter);
 app.use('/contact',contactController)
 //let p = path.join(__dirname,'../src/index.html');
-app.get('/*', function(req,res) { 
-res.sendFile(path.join(__dirname,'../src/index.html'));});
+//app.get('/*', function(req,res) { 
+//res.sendFile(path.join(__dirname,'../src/index.html'));});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
