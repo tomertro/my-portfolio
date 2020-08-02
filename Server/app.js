@@ -24,7 +24,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-let distPath = path.join( __dirname , '../dist/my-portfolio');
+let distPath = path.join( __dirname , '../dist/my-portfoilo');
 app.use(express.static(distPath));
 //app.use(express.static(path.join(__dirname, 'public')));
 
