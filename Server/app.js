@@ -24,16 +24,17 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.static(__dirname + '/dist/my-porfolio'));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/sendmail', mailsenderRouter);
 app.use('/contact',contactController)
 //let p = path.join(__dirname,'../src/index.html');
-app.get('/*', function(req,res) {
- 
-  res.sendFile(path.join(__dirname,'../src/index.html'));});
+app.get('/*', function(req,res) { 
+res.sendFile(path.join(__dirname,'../src/index.html'));});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
