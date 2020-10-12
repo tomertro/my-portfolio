@@ -1,0 +1,52 @@
+[
+    {
+    "Parent":"C# .NET Client/Server",
+    "Experience":"Above 14 years",
+    "Skills":[{
+        "Name":"WPF Prism applications",
+        "Image":"assets/WPF Prism.png"
+        
+    },
+    {
+        "Name":"Beck end developer ASP.NET C# REST API's server",
+        "Image":"assets/RESTfulAPI.png"      
+    },
+    {
+        "Name":"WCF",
+        "Image":"assets/wcf.png"        
+    }
+        ]
+
+    },
+    {
+        "Parent":"Web Applications",
+        "Experience":"Above 3 years",
+        "Skills":[{
+            "Name":"Angular framework",
+            "Image":"assets/Angular.png"
+            
+        },
+        {
+            "Name":"Reactive application using NgRx",
+            "Image":"assets/Ngrx.png"
+           
+        },
+        {
+            "Name":"RxJS - reactive extensions library for javascript",
+            "Image":"assets/RxJS.jpg"
+        },
+        {
+            "Name":"Bootstrap CSS toolkit and framework",
+            "Image":"assets/Bootstrap4.jpg"
+        },
+        {
+            "Name":"Node JS",
+            "Image":"assets/NodeJS.png"
+        }
+        ]
+    
+        
+    }
+    
+
+]

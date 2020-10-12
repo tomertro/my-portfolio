@@ -9,7 +9,7 @@ export class PersonalDetailsState  {
     details: PersonalDeatiles;
 }
 
-const initialState: PersonalDetailsState = {details: {Name:'',Title:'',Image:'',About:'',Skills:['']}};
+const initialState: PersonalDetailsState = {details: {Name:'',Title:'',Image:'',About:''}};
 //const initialState: PersonalDetailsState = new PersonalDetailsState();
 export function personalDetailsReducer(state: PersonalDetailsState = initialState, action: All): PersonalDetailsState {
     switch (action.type) {

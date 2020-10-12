@@ -1,3 +1,5 @@
+const { throwError } = require('rxjs');
+
 //https://www.toptal.com/nodejs/secure-rest-api-in-nodejs
 const mongoose = require('../services/mongoose.service').mongoose;
 const Schema = mongoose.Schema; 
@@ -24,16 +26,18 @@ exports.createContact = (contactData) => {
     return contact.save();
 };
 
-//Contact.findById(id, function (err, adventure) {});
-/* exports.getContact  = (id)=>{ Contact.findById(id, function (err, contact) {
+//exports.getContact = (id) =>{await Model.findById(id)};
+ exports.getContact  = (id)=>{ Contact.findById(id, function (err, contact) {
+    if(err)
+        throwError(err) 
     return contact;
-})}; */
+})}; 
 
-exports.getContact = (id) => {
+/*exports.getContact = (id) => {
     return Contact.findById(id)
         .then((result) => {
             
            
             return result;
         });
-};
+};*/

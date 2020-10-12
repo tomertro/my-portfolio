@@ -19,6 +19,9 @@ import { ModalComponent } from 'src/modal/modal.component';
 import { ResumeComponent } from '../resume/resume.component';
 import { JobExperienceComponent } from '../job-experience/job-experience.component';
 import { AboutSiteComponent } from '../about-site/about-site.component';
+import { ProgrammingSkillsComponent } from 'src/programming-skills/programming-skills.component';
+import { ProgrammingSkillsEffects } from 'src/programming-skills/store/programming-skills.effects';
+import { programmingSkillsReducer } from 'src/programming-skills/store/programming-skills.reducers';
 
 
 
@@ -34,7 +37,8 @@ import { AboutSiteComponent } from '../about-site/about-site.component';
    ModalComponent,
    ResumeComponent,
    JobExperienceComponent,
-   AboutSiteComponent
+   AboutSiteComponent,
+   ProgrammingSkillsComponent
   
   ],
   exports:[ModalComponent],
@@ -43,8 +47,12 @@ import { AboutSiteComponent } from '../about-site/about-site.component';
     HttpClientModule,
     ContactModule,
     StoreModule.forRoot({}),  
+    EffectsModule.forRoot([]),
     StoreModule.forFeature('personalDetails', personalDetailsReducer),
-    EffectsModule.forRoot([PersonalDetailsEffects]),
+    StoreModule.forFeature('programmingSkills', programmingSkillsReducer),
+    EffectsModule.forFeature([PersonalDetailsEffects,ProgrammingSkillsEffects]),
+   
+    
     FormsModule,
     BrowserModule,
     StoreDevtoolsModule.instrument({maxAge: 25}),

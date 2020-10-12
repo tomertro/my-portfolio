@@ -17,8 +17,8 @@ export class ContactService {
     console.log('Save Contact:' + JSON.stringify(contact));
     const body = JSON.stringify(contact);
     const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
-    //const api = this._baseUrl + 'contact'
-    const api = "contact";
+    const api = this._baseUrl + 'contact'
+    //const api = "contact";
     //const api =  '/sendmail'    
     return this.http.put(api, body,{headers}) 
 
@@ -27,16 +27,13 @@ export class ContactService {
   EmailContact(contactId: string): Observable<any> {
     //  const body = contactId;
     const headers = { 'Content-Type': 'application/json' };
-    /*  const body = new HttpParams()
-   .set('ContactID', contactId); */
-    const options = contactId ?
-      {
-        params: new HttpParams().set('ContactID', contactId.trim())
-      } : {};
+      const body = new HttpParams()
+   .set('ContactID', contactId); 
+    
 
     const api = this._baseUrl + 'sendmail'
     //const api = 'api/sendmail'
-    return this.http.post(api, options)
+    return this.http.post(api, body)
 
   }
 

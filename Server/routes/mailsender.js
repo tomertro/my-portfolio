@@ -50,13 +50,12 @@ const sendMail = (contact,callback) => {
 
 router.post("/",(req,res)=>{
   debugger;
-    console.log("request came");
-    const queryObject = url.parse(req.url,true).query;
-    var id = queryObject.ContactID;
+    console.log("request came");  
+    var id = req.body.ContactID;
     try {
       ContactModel.getContact(id).then((res1)=>{
         const contact = res1;
-        if(contact === undefined){
+        if(contact === undefined || !contact){
           throw new Error('contact not found');
         }
         sendMail( contact,(err ,info)=>{
