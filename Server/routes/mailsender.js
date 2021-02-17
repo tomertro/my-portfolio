@@ -60,10 +60,10 @@ router.post("/",(req,res)=>{
         }
         sendMail( contact,(err ,info)=>{
             if (err) {
-               
+                let errorObj ={ Message:error.message,Stack: error.stack,Origin:error};
                 console.log(err);
                 res.status(400);
-                res.send({ error: "Failed to send email" });
+                res.send(errorObj);
               }
               else{
                 console.log("Email has been sent");
@@ -75,7 +75,8 @@ router.post("/",(req,res)=>{
     });
       
     } catch (error) {
-      res.status(500).send(error);
+      let errorObj ={ Message:error.message,Stack: error.stack,Origin:error};
+      res.status(500).send(errorObj);
     }
  
 

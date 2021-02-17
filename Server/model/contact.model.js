@@ -27,17 +27,8 @@ exports.createContact = (contactData) => {
 };
 
 //exports.getContact = (id) =>{await Model.findById(id)};
- exports.getContact  = (id)=>{ Contact.findById(id, function (err, contact) {
-    if(err)
-        throwError(err) 
-    return contact;
-})}; 
-
-/*exports.getContact = (id) => {
-    return Contact.findById(id)
-        .then((result) => {
-            
-           
-            return result;
-        });
-};*/
+ exports.getContact  = (id)=>{ return Promise.resolve( Contact.findById(id, (err,res)=>{
+     if(err) throwError(err)
+     return res;
+ }))
+};

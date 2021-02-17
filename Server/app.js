@@ -26,9 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 let distPath = path.join( __dirname , '../dist/my-portfoilo');
 app.use(express.static(distPath));
-//app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/sendmail', mailsenderRouter);
 app.use('/contact',contactController)

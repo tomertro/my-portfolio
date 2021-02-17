@@ -34,7 +34,8 @@ export class ContactEffects {
          return this.contactService.SaveContact(c.payload).pipe(mergeMap(res=>{
            return [new contactActions.AddContactSuccess(res.id)] 
          }),
-        catchError((error:HttpErrorResponse) => {           
+        catchError((error:HttpErrorResponse) => {   
+          debugger;        
            console.log('error addContact effect error:' + JSON.stringify(error) )
            if(error.statusText === 'Unknown Error' && environment.isOffline)
               return [new contactActions.AddContactSuccess('fake id')] 

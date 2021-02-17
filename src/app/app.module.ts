@@ -1,4 +1,4 @@
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { HttpClientModule,HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactModule } from './../contact/contact.module';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,6 +22,7 @@ import { AboutSiteComponent } from '../about-site/about-site.component';
 import { ProgrammingSkillsComponent } from 'src/programming-skills/programming-skills.component';
 import { ProgrammingSkillsEffects } from 'src/programming-skills/store/programming-skills.effects';
 import { programmingSkillsReducer } from 'src/programming-skills/store/programming-skills.reducers';
+import { ServerErrorInterceptor } from './serverErrorInterceptor';
 
 
 
@@ -59,7 +60,7 @@ import { programmingSkillsReducer } from 'src/programming-skills/store/programmi
     AppRoutingModule
   
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
