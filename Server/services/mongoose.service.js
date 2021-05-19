@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 let count = 0;
 
 const options = {
@@ -15,17 +16,41 @@ const options = {
   socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
     
 };
-const connectWithRetry = () => {
-    console.log('MongoDB connection with retry')
-    mongoose.connect(process.env.MONGODB_URL, options).then(()=>{
-        console.log('MongoDB is connected')
-    }).catch(err=>{
+async function connectWithRetry (){
+    try{
+        console.log('MongoDB connection with retry');
+        let connection = await mongoose.connect(process.env.MONGODB_URL, options);        
+        console.log('MongoDB is connected');
+        return connection;
+    }
+    catch(err){
         console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count);
         console.log('error: ', err);
-        setTimeout(connectWithRetry, 5000)
-    })
-};
+        setTimeout(connectWithRetry, 5000);
+    }
+}
 
-connectWithRetry();
+
+
+(async()=>{
+   let conn = await connectWithRetry();
+   if(conn){
+    const ps = require('../model/personalDetails.modal');
+    const isInit= await ps.isInitpersonalDetails();
+    if(!isInit){
+     ps.initpersonalDetails().then((doc)=>{
+         if(doc && doc._id){
+            console.log(`Save default personal details successful.`)
+         }
+        
+     }).catch((err)=>{
+        console.log(`error on init personal details.error ${err}`);
+     })
+    }
+   }
+   
+}
+)//definition of method
+() ; //invoke the method
 
 exports.mongoose = mongoose;

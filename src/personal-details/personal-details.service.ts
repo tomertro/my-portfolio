@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ApplicationService } from 'src/app/application-service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -15,11 +16,16 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class PersonalDetailsService {
+  private readonly _baseUrl = environment.serverUrl;
+  private api = `assets/PersonalDetails.json`
   constructor(private appService:ApplicationService,private http: HttpClient) { }
 
   getPersonalDetails(): Observable<PersonalDeatiles>{
     debugger
-    const result = this.http.get<PersonalDeatiles>(`assets/PersonalDetails.json`);
+
+    if(!environment.isOffline)
+      this.api = this._baseUrl + 'personalDetails'
+    const result = this.http.get<PersonalDeatiles>(this.api);
     return result;
        
   }

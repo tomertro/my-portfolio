@@ -1,4 +1,3 @@
-const { throwError } = require('rxjs');
 
 //https://www.toptal.com/nodejs/secure-rest-api-in-nodejs
 const mongoose = require('../services/mongoose.service').mongoose;
@@ -28,7 +27,7 @@ exports.createContact = (contactData) => {
 
 //exports.getContact = (id) =>{await Model.findById(id)};
  exports.getContact  = (id)=>{ return Promise.resolve( Contact.findById(id, (err,res)=>{
-     if(err) throwError(err)
+     if(err) throw err;
      return res;
  }))
 };

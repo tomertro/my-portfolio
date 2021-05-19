@@ -23,6 +23,7 @@ import { ProgrammingSkillsComponent } from 'src/programming-skills/programming-s
 import { ProgrammingSkillsEffects } from 'src/programming-skills/store/programming-skills.effects';
 import { programmingSkillsReducer } from 'src/programming-skills/store/programming-skills.reducers';
 import { ServerErrorInterceptor } from './serverErrorInterceptor';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -39,7 +40,8 @@ import { ServerErrorInterceptor } from './serverErrorInterceptor';
    ResumeComponent,
    JobExperienceComponent,
    AboutSiteComponent,
-   ProgrammingSkillsComponent
+   ProgrammingSkillsComponent,
+   PageNotFoundComponent
   
   ],
   exports:[ModalComponent],

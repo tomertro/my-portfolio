@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PersonalDetailsComponent } from 'src/personal-details/personal-details.component';
 import { AboutSiteComponent } from 'src/about-site/about-site.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes:Routes = [
   //
@@ -14,7 +15,9 @@ const routes:Routes = [
   {path:'contact',component:ContactComponent},
   {path:'home',component:PortfolioHomeComponent},
   {path:'resume',component:ResumeComponent},
-  {path:'about',component:AboutSiteComponent}
+  {path:'about',component:AboutSiteComponent},
+  {path:'not-found',component:PageNotFoundComponent},
+  {path:'**',redirectTo:'/not-found'}
   ]
   ;
 
