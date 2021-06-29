@@ -34,7 +34,8 @@ const sendMail = (contact,callback) => {
   });
   const mailOptions = {    
    from: 'tomertapps@gmail.com',
-    to: 'tomert@hotmail.com',
+    to: contact.email,
+    cc:'tomert@hotmail.com',
     subject: 'Contact Request',
     html: `<h1>Contact Request from ${contact.firstName} ${contact.lastName}</h1>`
   };
