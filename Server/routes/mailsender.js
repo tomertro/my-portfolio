@@ -16,10 +16,10 @@ const sendMail = (contact,callback) => {
   try {
   const transporter = nodemailer.createTransport({
     //name:'localhost',
-    host: "smtp.gmail.com",
-    //port:587,
-    //secure:false,
-    service: "gmail",
+    host: 'smtp.gmail.com',
+    port:587,
+    secure:false,
+    service: 'gmail',
     auth: {
       user:config.emailUser,
       pass:config.emailPass,
