@@ -24,6 +24,7 @@ import { ProgrammingSkillsEffects } from 'src/programming-skills/store/programmi
 import { programmingSkillsReducer } from 'src/programming-skills/store/programming-skills.reducers';
 import { ServerErrorInterceptor } from './serverErrorInterceptor';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 
 
@@ -62,7 +63,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule
   
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

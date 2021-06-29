@@ -15,10 +15,10 @@ var ContactModel = require('../model/contact.model');
 const sendMail = (contact,callback) => {
   try {
   const transporter = nodemailer.createTransport({
-    name:'localhost',
-    host: "smtp.ethereal.email",
-    port:587,
-    secure:false,
+    //name:'localhost',
+    host: "smtp.gmail.com",
+    //port:587,
+    //secure:false,
     service: "gmail",
     auth: {
       user:config.emailUser,
@@ -30,12 +30,12 @@ const sendMail = (contact,callback) => {
       'X-Laziness-level': 1000 // just an example header, no need to use this
   },
     logger: true,
-    debug: false // include SMTP traffic in the logs
+    debug: true // include SMTP traffic in the logs
   });
   const mailOptions = {    
-   from: '"tomertapps"tomertapps@gmail.com',
-    to: "tomert@hotmail.com",
-    subject: "Contact Request",
+   from: 'tomertapps@gmail.com',
+    to: 'tomert@hotmail.com',
+    subject: 'Contact Request',
     html: `<h1>Contact Request from ${contact.firstName} ${contact.lastName}</h1>`
   };
   
@@ -56,11 +56,12 @@ router.post("/",(req,res)=>{
       ContactModel.getContact(id).then((res1)=>{
         const contact = res1;
         if(contact === undefined || !contact){
-          throw new Error('contact not found');
+          res.status(500).send("No Contact found.");
+          return;
         }
         sendMail( contact,(err ,info)=>{
             if (err) {
-                let errorObj ={ Message:error.message,Stack: error.stack,Origin:error};
+                let errorObj ={ Message:err.message,Stack: err.stack,Origin:err};
                 console.log(err);
                 res.status(400);
                 res.send(errorObj);

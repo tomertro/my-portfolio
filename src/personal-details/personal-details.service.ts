@@ -18,7 +18,7 @@ import { environment } from 'src/environments/environment';
 export class PersonalDetailsService {
   private readonly _baseUrl = environment.serverUrl;
   private api = `assets/PersonalDetails.json`
-  constructor(private appService:ApplicationService,private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getPersonalDetails(): Observable<PersonalDeatiles>{
     debugger

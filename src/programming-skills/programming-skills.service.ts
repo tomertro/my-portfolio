@@ -18,8 +18,7 @@ import { ProgrammingSkills } from 'src/models/programming-skills.model';
 export class ProgrammingSkillsService {
   constructor(private appService:ApplicationService,private http: HttpClient) { }
 
-  getSkills(): Observable<ProgrammingSkills>{
-    debugger
+  getSkills(): Observable<ProgrammingSkills>{    
     const result = this.http.get<ProgrammingSkills>(`assets/ProgrammingTechnologies.json`);
     return result;
        

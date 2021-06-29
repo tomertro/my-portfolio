@@ -59,8 +59,7 @@ export class ContactEffects {
           mergeMap(res=>{return [new contactActions.MailSentSuccess()]}  )
         //todo return action of mail sent
         //add 
-        , catchError((error:HttpErrorResponse) => {
-          debugger;
+        , catchError((error:HttpErrorResponse) => {          
           console.log('error addContact effect error:' + JSON.stringify(error) )        
           return of(new contactActions.MailSentFailed());
        })

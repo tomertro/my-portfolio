@@ -21,7 +21,7 @@ export class PersonalDetailsComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-  
+    debugger;
     this.loadPersonalDetails();
     this.personalDetails$ = this.store.select(personalDetailsSelector);
     
