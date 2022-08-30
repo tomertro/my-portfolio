@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+
+
+
 //var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mailsenderRouter = require('./routes/mailsender');
@@ -12,7 +15,6 @@ var contactController =  require('./routes/contactController');
 var personalDetailsController = require('./routes/personalDetailsController');
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
 var app = express();
 
 // view engine setup
@@ -28,6 +30,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 let distPath = path.join( __dirname , '../dist/my-portfoilo');
 app.use(express.static(distPath));
+
+
+
 
 app.use('/users', usersRouter);
 app.use('/sendmail', mailsenderRouter);

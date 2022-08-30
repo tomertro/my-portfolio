@@ -29,6 +29,7 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
    JobExperienceComponent,
    AboutSiteComponent,
    ProgrammingSkillsComponent,
-   PageNotFoundComponent
+   PageNotFoundComponent,
+   
   
   ],
   exports:[ModalComponent],

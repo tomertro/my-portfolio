@@ -9,7 +9,7 @@ dotenv.config();
 ///{ path: path.resolve(process.cwd() +'/server/.env')  }
 // capture the environment variables the application needs
 const { EMAIL_USER,
-    EMAIL_PASS,PORT
+    EMAIL_PASS,PORT,GOOGLE_CLIENT_ID,GOOGLE_CLIENT_SECRET    
 } = process.env;
 
 // validate the required configuration information
@@ -21,5 +21,7 @@ assert( PORT, "PORT configuration is required." );
 module.exports = {
    emailUser: EMAIL_USER,
    emailPass: EMAIL_PASS,
+   clientID :GOOGLE_CLIENT_ID,
+   secret:GOOGLE_CLIENT_SECRET,
    port : process.env.PORT || PORT
 };
